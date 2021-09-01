@@ -211,11 +211,17 @@ if !exists('g:airline_symbols')
 set splitbelow
 set splitright
 
-" Quicker window movement
+" Quicker window displacement
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+
+" Quicker window swapping
+nnoremap <S-j> <C-w><S-j>
+nnoremap <S-k> <C-w><S-k>
+nnoremap <S-h> <C-w><S-h>
+nnoremap <S-l> <C-w><S-l>
 
 " Remap to resize vertical screens
 nnoremap + :vertical resize +2<CR>
