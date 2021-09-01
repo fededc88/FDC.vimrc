@@ -99,6 +99,10 @@ nnoremap <C-a> :Ack!<Space>
 "remap <C-f> to select an inner word and search it in the wd tree
 nnoremap <C-f> viwy:Ack!<Space><C-r>0<CR>
 
+"-------> ctrlp options <-------
+" Custom Ignore definition for folders and file extensions
+let g:ctrlp_custom_ignore = '\v[\/](deprecated)|(\.(d|obj|o|ko|ilk|exp|a|la|lo))$'
+
 "-------> vim-cpp-enhanced-highlight Options <-------
 " Note: C++ template syntax is notoriously difficult to parse, so don't expect
 " this feature to be perfect.
