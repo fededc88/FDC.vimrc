@@ -96,8 +96,8 @@ endif
 let g:ackhighlight = 1
 
 nnoremap <C-a> :Ack!<Space>
-"remap <C-f> to select an inner word and search it in the wd tree
-nnoremap <C-f> viwy:Ack!<Space><C-r>0<CR>
+"remap <C-f> in visual mode to junk selected text and search it in the wd tree
+vnoremap <C-f> y:Ack!<Space><C-r>0<CR>
 
 "-------> ctrlp options <-------
 " Custom Ignore definition for folders and file extensions
@@ -227,3 +227,5 @@ nnoremap <S-l> <C-w><S-l>
 nnoremap + :vertical resize +2<CR>
 nnoremap - :vertical resize -2<CR>
 
+"Quick select inner word and replace
+nnoremap <S-r> ciw<C-r>0
