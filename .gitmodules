@@ -13,3 +13,6 @@
 [submodule "plugins/start/nerdtree"]
 	path = plugins/start/nerdtree
 	url = https://github.com/preservim/nerdtree
+[submodule "plugins/start/vim-airline"]
+	path = plugins/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline
