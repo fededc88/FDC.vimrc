@@ -1,0 +1,3 @@
+[submodule "plugins/start/ack.vim"]
+	path = plugins/start/ack.vim
+	url = https://github.com/mileszs/ack.vim
