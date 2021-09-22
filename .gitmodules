@@ -7,3 +7,6 @@
 [submodule "plugins/start/gruvbox"]
 	path = plugins/start/gruvbox
 	url = https://github.com/morhetz/gruvbox
+[submodule "plugins/start/molokai"]
+	path = plugins/start/molokai
+	url = https://github.com/tomasr/molokai
