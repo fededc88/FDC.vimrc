@@ -10,3 +10,6 @@
 [submodule "plugins/start/molokai"]
 	path = plugins/start/molokai
 	url = https://github.com/tomasr/molokai
+[submodule "plugins/start/nerdtree"]
+	path = plugins/start/nerdtree
+	url = https://github.com/preservim/nerdtree
