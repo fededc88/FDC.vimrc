@@ -32,6 +32,9 @@ endif
 "FINDING FILES:
 "Search down into subfolder
 set path+=**
+"exclude some dirs from :find and gf
+set wildignore+=**/deprecated/**,**/Deprecated/**
+
 " Display all matching files when we tab complete
 set wildmenu "Now we can:
 		" - Hit tab to :find by partial match
@@ -39,7 +42,7 @@ set wildmenu "Now we can:
 
 " TAG JUMPUNG:
 " Create the 'tags' file ( may need to install ctags)
-command! TagMe !ctags -R --exclude=.git --exclude=Deprecated .
+command! Tagme !ctags -R --exclude=.git --exclude=Deprecated --exclude=deprecated ./**/*
 " Highlights:
     " ^]  jumps to tag under cursor
     " g^] list ambiguous tags
@@ -97,7 +100,7 @@ let g:ackhighlight = 1
 
 nnoremap <C-a> :Ack!<Space>
 "remap <C-f> in visual mode to junk selected text and search it in the wd tree
-vnoremap <C-f> y:Ack!<Space><C-r>0<CR>
+vnoremap <C-f> y:Ack! --literal<Space>"<C-r>0"<CR>
 
 "-------> ctrlp options <-------
 " Custom Ignore definition for folders and file extensions
@@ -167,6 +170,9 @@ nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-b> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
+
+" If I close the last window when a NERDTree exists, Vim automatically closes.
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 "change the default arrows
 "let g:NERDTreeDirArrowExpandable = '+'
