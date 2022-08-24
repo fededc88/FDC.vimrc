@@ -23,14 +23,6 @@ filetype plugin on
 " When there is a previous search pattern, highlight all its matches.
 set hlsearch
 
-" PERSISTENT UNDO:
-if has('persistent_undo')      "check if your vim version supports it
-    set undofile                 "turn on the feature  
-    set undodir=$HOME/.vim/undo  "directory where the undo files will be stored
-endif     
-
-"FINDING FILES:
-"Search down into subfolder
 set path+=**
 "exclude some dirs from :find and gf
 set wildignore+=**/deprecated/**,**/Deprecated/**
@@ -42,7 +34,7 @@ set wildmenu "Now we can:
 
 " TAG JUMPUNG:
 " Create the 'tags' file ( may need to install ctags)
-command! Tagme !ctags -R --exclude=.git --exclude=Deprecated --exclude=deprecated ./**/*
+command! Tagme !ctags -R --exclude=.git --exclude=Deprecated --exclude=deprecated --exclude=examples .
 " Highlights:
     " ^]  jumps to tag under cursor
     " g^] list ambiguous tags
@@ -81,10 +73,28 @@ filetype plugin indent on
 
 " TEMP FILES RELOCATION:
 " Remove Temporary files from wirking directory & store them in a temp directory
-set backupdir=~/.vim/tmp// " the version of myfile.txt before your edited it.
-set directory=~/.vim/tmp// " swap file, containing the unsaved changes.
-set undodir=~/.vim/tmp// " is an undo file, containing the undo trees of the
-                         " file edited.
+" better backup, swap and undos storage for vim
+
+set directory=%HOMEPATH%\.vim\dir\tmp\\       " swap file, containing the unsaved changes.
+set backupdir=%HOMEPATH%\.vim\dir\backup\\    " the version of myfile.txt before your edited it.
+
+" PERSISTENT UNDO:
+if has('persistent_undo')         "check if your vim version supports it
+    set undofile                  "turn on the feature  
+    
+    set undodir=%HOMEPATH%\.vim\dir\undos  "directory where the undo files will be stored
+endif     
+
+" create needed directories if they don't exist
+if !isdirectory(&backupdir)
+    call mkdir(&backupdir, "p")
+endif
+if !isdirectory(&directory)
+    call mkdir(&directory, "p")
+endif
+if !isdirectory(&undodir)
+    call mkdir(&undodir, "p")
+endif
 
 " vim+8 Package support
 " Packages should be instaled in ~/.vim/pack/plugins/start/<packname>
@@ -104,7 +114,7 @@ vnoremap <C-f> y:Ack! --literal<Space>"<C-r>0"<CR>
 
 "-------> ctrlp options <-------
 " Custom Ignore definition for folders and file extensions
-let g:ctrlp_custom_ignore = '\v[\/](deprecated)|(\.(d|obj|o|ko|ilk|exp|a|la|lo))$'
+let g:ctrlp_custom_ignore = '\v[\/](deprecated)|\v[\/](examples)|(\.(d|obj|o|ko|ilk|exp|a|la|lo))$'
 
 "-------> vim-cpp-enhanced-highlight Options <-------
 " Note: C++ template syntax is notoriously difficult to parse, so don't expect
