@@ -12,6 +12,7 @@ This repo includes a serie of vim plugins as submodules
  * [molokai](https://github.com/tomasr/molokai)
  * [nerdtree](https://github.com/preservim/nerdtree)
  * [vim-airline](https://github.com/vim-airline/vim-airline)
+ * [vim-fugitive](https://github.com/tpope/vim-fugitive)
 
 in order to clone and get FDC.vimrc repo do:
 ```
