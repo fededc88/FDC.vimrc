@@ -5,7 +5,6 @@ My .vimrc file
 ## Folder structure
 
 This repo includes a serie of vim plugins as submodules
- * [mymalloc](https://github.com/fededc88/mymalloc.git)
  * [ack.vim](https://github.com/mileszs/ack.vim)
  * [ctrlp.vim](https://github.com/kien/ctrlp.vim)
  * [gruvbox](https://github.com/morhetz/gruvbox)
